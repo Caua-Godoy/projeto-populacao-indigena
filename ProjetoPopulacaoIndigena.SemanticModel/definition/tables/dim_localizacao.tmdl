@@ -1,0 +1,125 @@
+table dim_localizacao
+	lineageTag: fe465f64-7346-474d-8b45-bcf6b8abdc21
+
+	column 'Código DSEI'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b6bd7b3-fb5f-4207-b6cc-1b666365a7fe
+		summarizeBy: none
+		sourceColumn: Código DSEI
+
+		annotation SummarizationSetBy = Automatic
+
+	column DSEI
+		dataType: string
+		lineageTag: 58513183-d441-4dff-85d9-e4b511bd9270
+		summarizeBy: none
+		sourceColumn: DSEI
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código POLO BASE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05349f53-1fd2-4e38-8e83-14d53c1c4509
+		summarizeBy: none
+		sourceColumn: Código POLO BASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'POLO BASE'
+		dataType: string
+		lineageTag: 963be185-6877-423d-ad4e-4bd01eb1a0ef
+		summarizeBy: none
+		sourceColumn: POLO BASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código TERRA INDÍGENA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5beb8ed6-0796-42a9-8c40-1c00ba55c3b0
+		summarizeBy: none
+		sourceColumn: Código TERRA INDÍGENA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TERRA INDÍGENA'
+		dataType: string
+		lineageTag: 7180171d-2ef1-4c54-96a7-b05f53175916
+		summarizeBy: none
+		sourceColumn: TERRA INDÍGENA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código MUNÍCIPIO IBGE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 03599c25-dedf-49ed-98c3-dcd89e4080b1
+		summarizeBy: none
+		sourceColumn: Código MUNÍCIPIO IBGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MUNICÍPIO
+		dataType: string
+		lineageTag: 4901fb6d-a999-4550-ad2c-26168017abeb
+		summarizeBy: none
+		sourceColumn: MUNICÍPIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 79b161a1-2922-45de-b565-4d75061fbaed
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código ALDEIA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ef24e9a-a5f0-4f40-aa37-11ae117857b5
+		summarizeBy: none
+		sourceColumn: Código ALDEIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALDEIA
+		dataType: string
+		lineageTag: f526c818-b7fd-42b7-a92e-143d657086ec
+		summarizeBy: none
+		sourceColumn: ALDEIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Localizacao
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f9817cf-0bbe-4822-b4db-9e5b1bee0187
+		summarizeBy: none
+		sourceColumn: ID_Localizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_localizacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\TrabalhoBI2\dados.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Código DSEI", Int64.Type}, {"DSEI", type text}, {"Código POLO BASE", Int64.Type}, {"POLO BASE", type text}, {"Código TERRA INDÍGENA", Int64.Type}, {"TERRA INDÍGENA", type text}, {"Código MUNÍCIPIO IBGE", Int64.Type}, {"MUNICÍPIO", type text}, {"UF", type text}, {"Código ALDEIA", Int64.Type}, {"ALDEIA", type text}, {"SEXO", type text}, {"FAIXA ETÁRIA", type text}, {"ANO", Int64.Type}, {"POPULAÇÃO INDÍGENA", Int64.Type}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"Código DSEI", "DSEI", "Código POLO BASE", "POLO BASE", "Código TERRA INDÍGENA", "TERRA INDÍGENA", "Código MUNÍCIPIO IBGE", "MUNICÍPIO", "UF", "Código ALDEIA", "ALDEIA"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas"),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Duplicatas Removidas", "Índice", 434, 5, Int64.Type),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Índice Adicionado",{"Índice", "Código DSEI", "DSEI", "Código POLO BASE", "POLO BASE", "Código TERRA INDÍGENA", "TERRA INDÍGENA", "Código MUNÍCIPIO IBGE", "MUNICÍPIO", "UF", "Código ALDEIA", "ALDEIA"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"Índice", "ID_Localizacao"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

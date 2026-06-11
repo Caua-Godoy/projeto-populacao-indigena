@@ -1,0 +1,211 @@
+table dim_calendario
+	lineageTag: 831e363b-1c57-4e22-9248-0e52164e0c1b
+
+	column ID_Calendario
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d09c211-8ab5-4e17-98ba-fcb51fe0ac76
+		summarizeBy: none
+		sourceColumn: ID_Calendario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 840f549f-32d5-40ae-a8bd-d65dc67f3a55
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: a9084478-c081-461c-a1df-ec1b912e8c8a
+			defaultHierarchy: LocalDateTable_f0b11947-0f69-4189-b5ff-56371bfa75dc.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: e7c0433e-16a5-4896-bb70-95b36b43f34a
+		summarizeBy: sum
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaSemana
+		dataType: string
+		lineageTag: c89bce5d-50e6-4c28-9e3f-03d09bd9e756
+		summarizeBy: none
+		sourceColumn: DiaSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroDiaSemana
+		dataType: int64
+		formatString: 0
+		lineageTag: 2336c111-0342-4952-8b7c-1975c277f132
+		summarizeBy: sum
+		sourceColumn: NumeroDiaSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: 8adfa05d-5d67-4755-895b-1668ad560a9b
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroMes
+		dataType: int64
+		formatString: 0
+		lineageTag: 620543a4-2c49-4da5-b3cb-6408bb3266df
+		summarizeBy: sum
+		sourceColumn: NumeroMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: 1e3d70da-06e0-4e71-b4ee-2fa3a1b06b58
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre
+		dataType: string
+		lineageTag: f7b9ed5a-63bb-4670-9509-3dc1ddd8e4b2
+		summarizeBy: none
+		sourceColumn: Semestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMes
+		dataType: string
+		lineageTag: 80d3c608-2b00-4d5e-8fa8-eb64ce4527d7
+		summarizeBy: none
+		sourceColumn: AnoMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: c3e99c29-4bd7-4815-ba9b-137c8ba55bf4
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_calendario = m
+		mode: import
+		source =
+				let
+				    Fonte = List.Dates(
+				        #date(2026, 1, 1),
+				        Duration.Days(#date(2026, 12, 31) - #date(2026, 1, 1)) + 1,
+				        #duration(1, 0, 0, 0)
+				    ),
+				
+				    Tabela = Table.FromList(Fonte, Splitter.SplitByNothing(), {"Data"}),
+				
+				    Tipo = Table.TransformColumnTypes(Tabela, {{"Data", type date}}),
+				
+				    IDCalendario = Table.AddColumn(
+				        Tipo,
+				        "ID_Calendario",
+				        each Number.FromText(Date.ToText([Data], "yyyyMMdd")),
+				        Int64.Type
+				    ),
+				
+				    Ano = Table.AddColumn(
+				        IDCalendario,
+				        "Ano",
+				        each Date.Year([Data]),
+				        Int64.Type
+				    ),
+				
+				    MesNumero = Table.AddColumn(
+				        Ano,
+				        "NumeroMes",
+				        each Date.Month([Data]),
+				        Int64.Type
+				    ),
+				
+				    Mes = Table.AddColumn(
+				        MesNumero,
+				        "Mes",
+				        each Date.MonthName([Data], "pt-BR"),
+				        type text
+				    ),
+				
+				    Trimestre = Table.AddColumn(
+				        Mes,
+				        "Trimestre",
+				        each "T" & Text.From(Date.QuarterOfYear([Data])),
+				        type text
+				    ),
+				
+				    Semestre = Table.AddColumn(
+				        Trimestre,
+				        "Semestre",
+				        each if Date.Month([Data]) <= 6 then "1º Semestre" else "2º Semestre",
+				        type text
+				    ),
+				
+				    Dia = Table.AddColumn(
+				        Semestre,
+				        "Dia",
+				        each Date.Day([Data]),
+				        Int64.Type
+				    ),
+				
+				    NumeroDiaSemana = Table.AddColumn(
+				        Dia,
+				        "NumeroDiaSemana",
+				        each Date.DayOfWeek([Data], Day.Monday) + 1,
+				        Int64.Type
+				    ),
+				
+				    DiaSemana = Table.AddColumn(
+				        NumeroDiaSemana,
+				        "DiaSemana",
+				        each Date.DayOfWeekName([Data], "pt-BR"),
+				        type text
+				    ),
+				
+				    AnoMes = Table.AddColumn(
+				        DiaSemana,
+				        "AnoMes",
+				        each Date.ToText([Data], "yyyy-MM"),
+				        type text
+				    ),
+				
+				    Resultado = Table.ReorderColumns(
+				        AnoMes,
+				        {
+				            "ID_Calendario",
+				            "Data",
+				            "Dia",
+				            "DiaSemana",
+				            "NumeroDiaSemana",
+				            "Mes",
+				            "NumeroMes",
+				            "Trimestre",
+				            "Semestre",
+				            "AnoMes",
+				            "Ano"
+				        }
+				    )
+				in
+				    Resultado
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

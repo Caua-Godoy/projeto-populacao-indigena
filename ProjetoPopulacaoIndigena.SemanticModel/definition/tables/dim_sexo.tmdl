@@ -1,0 +1,40 @@
+table dim_sexo
+	lineageTag: 3a2c1699-7e81-44be-9d05-8df165e43a35
+
+	column SEXO
+		dataType: string
+		lineageTag: ae8db3ed-a47d-4eb6-a44f-43ee69bef7e1
+		summarizeBy: none
+		sourceColumn: SEXO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Sexo
+		dataType: int64
+		formatString: 0
+		lineageTag: 779d976e-67bf-4467-b695-9a31bd761f2a
+		summarizeBy: none
+		sourceColumn: ID_Sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sexo = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\TrabalhoBI2\dados.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Código DSEI", Int64.Type}, {"DSEI", type text}, {"Código POLO BASE", Int64.Type}, {"POLO BASE", type text}, {"Código TERRA INDÍGENA", Int64.Type}, {"TERRA INDÍGENA", type text}, {"Código MUNÍCIPIO IBGE", Int64.Type}, {"MUNICÍPIO", type text}, {"UF", type text}, {"Código ALDEIA", Int64.Type}, {"ALDEIA", type text}, {"SEXO", type text}, {"FAIXA ETÁRIA", type text}, {"ANO", Int64.Type}, {"POPULAÇÃO INDÍGENA", Int64.Type}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"SEXO"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas"),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Duplicatas Removidas", "Índice", 2, 4, Int64.Type),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Índice Adicionado",{"Índice", "SEXO"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"Índice", "ID_Sexo"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

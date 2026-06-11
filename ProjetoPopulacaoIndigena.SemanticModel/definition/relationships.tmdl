@@ -1,0 +1,21 @@
+relationship a9084478-c081-461c-a1df-ec1b912e8c8a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_calendario.Data
+	toColumn: LocalDateTable_f0b11947-0f69-4189-b5ff-56371bfa75dc.Date
+
+relationship AutoDetected_ffa9d1a6-c9b6-48bf-806b-2e1be5ffc001
+	fromColumn: fato_populacao.ID_Calendario
+	toColumn: dim_calendario.ID_Calendario
+
+relationship AutoDetected_747c84a0-e853-43bf-8523-b58a69105a82
+	fromColumn: fato_populacao.ID_FaixaEtaria
+	toColumn: dim_faixa_etaria.ID_FaixaEtaria
+
+relationship AutoDetected_5d77296f-4c57-4c09-b2c2-50f804a08f49
+	fromColumn: fato_populacao.ID_Sexo
+	toColumn: dim_sexo.ID_Sexo
+
+relationship AutoDetected_67a4a1ad-2b19-40e2-971f-b19afa35fada
+	fromColumn: fato_populacao.ID_Localizacao
+	toColumn: dim_localizacao.ID_Localizacao
+

@@ -1,0 +1,24 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fato_populacao","dim_sexo","dim_localizacao","dim_faixa_etaria","dim_calendario"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fato_populacao
+ref table dim_sexo
+ref table dim_localizacao
+ref table dim_faixa_etaria
+ref table dim_calendario
+ref table DateTableTemplate_535895c3-2fc2-43a3-a580-a52b99c98256
+ref table LocalDateTable_f0b11947-0f69-4189-b5ff-56371bfa75dc
+
+ref cultureInfo pt-BR
+

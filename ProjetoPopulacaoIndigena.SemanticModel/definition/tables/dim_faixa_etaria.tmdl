@@ -1,0 +1,54 @@
+table dim_faixa_etaria
+	lineageTag: 6bb88c33-d723-4907-89cd-63eff4af96b1
+
+	column 'FAIXA ETÁRIA'
+		dataType: string
+		lineageTag: f6772bcf-a651-4ef9-9e61-b071e948248c
+		summarizeBy: none
+		sourceColumn: FAIXA ETÁRIA
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_FaixaEtaria
+		dataType: string
+		lineageTag: 993bcd43-fdae-4996-b012-e1030dc69551
+		summarizeBy: none
+		sourceColumn: ID_FaixaEtaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETAPA VIDA'
+		dataType: string
+		lineageTag: 6bb2352e-0759-4c0b-a8b2-c2886b1de799
+		summarizeBy: none
+		sourceColumn: ETAPA VIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_faixa_etaria = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\TrabalhoBI2\dados.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Código DSEI", Int64.Type}, {"DSEI", type text}, {"Código POLO BASE", Int64.Type}, {"POLO BASE", type text}, {"Código TERRA INDÍGENA", Int64.Type}, {"TERRA INDÍGENA", type text}, {"Código MUNÍCIPIO IBGE", Int64.Type}, {"MUNICÍPIO", type text}, {"UF", type text}, {"Código ALDEIA", Int64.Type}, {"ALDEIA", type text}, {"SEXO", type text}, {"FAIXA ETÁRIA", type text}, {"ANO", Int64.Type}, {"POPULAÇÃO INDÍGENA", Int64.Type}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"FAIXA ETÁRIA"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas"),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Duplicatas Removidas", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Índice Adicionado",{"Índice", "FAIXA ETÁRIA"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"Índice", "ID_FaixaEtaria"}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Colunas Renomeadas",{"ID_FaixaEtaria"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Removidas", "ID_FaixaEtaria", each if [FAIXA ETÁRIA] = "0 - 4" then 1 else if [FAIXA ETÁRIA] = "5 - 9" then 2 else if [FAIXA ETÁRIA] = "10 - 14" then 3 else if [FAIXA ETÁRIA] = "15 -19" then 4 else if [FAIXA ETÁRIA] = "20 - 24" then 5 else if [FAIXA ETÁRIA] = "25 - 29" then 6 else if [FAIXA ETÁRIA] = "30 - 34" then 7 else if [FAIXA ETÁRIA] = "35 - 39" then 8 else if [FAIXA ETÁRIA] = "40 - 44" then 9 else if [FAIXA ETÁRIA] = "45 - 49" then 10 else if [FAIXA ETÁRIA] = "50 - 54" then 11 else if [FAIXA ETÁRIA] = "55 - 59" then 12 else if [FAIXA ETÁRIA] = "60 - 64" then 13 else if [FAIXA ETÁRIA] = "65 - 69" then 14 else if [FAIXA ETÁRIA] = "70 - 74" then 15 else if [FAIXA ETÁRIA] = "75 +" then 16 else null),
+				    #"Linhas Classificadas" = Table.Sort(#"Coluna Condicional Adicionada",{{"ID_FaixaEtaria", Order.Ascending}}),
+				    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Linhas Classificadas",{"ID_FaixaEtaria", "FAIXA ETÁRIA"}),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Colunas Reordenadas1", "ETAPA VIDA", each if [ID_FaixaEtaria] <= 2 then "Criança" else if [ID_FaixaEtaria] = 3 then "Pré-Adolescente" else if [ID_FaixaEtaria] = 4 then "Adolescente" else if [ID_FaixaEtaria] <= 6 then "Jovem Adulto" else if [ID_FaixaEtaria] <= 12 then "Adulto" else "Idoso")
+				in
+				    #"Coluna Condicional Adicionada1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

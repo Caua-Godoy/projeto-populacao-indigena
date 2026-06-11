@@ -1,0 +1,75 @@
+table fato_populacao
+	lineageTag: 8dbf7219-4aaf-4d8e-815b-469b42dca3f2
+
+	column 'POPULAÇÃO INDÍGENA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 25aed4ba-8f3b-4b96-a008-2eecb2390bcf
+		summarizeBy: sum
+		sourceColumn: POPULAÇÃO INDÍGENA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Calendario
+		dataType: int64
+		formatString: 0
+		lineageTag: e8ca7e73-77fb-4a27-a688-9e553a0d4ab3
+		summarizeBy: none
+		sourceColumn: ID_Calendario
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_FaixaEtaria
+		dataType: string
+		lineageTag: ca83d134-6970-416d-9e9e-6e86cae9ea3d
+		summarizeBy: none
+		sourceColumn: ID_FaixaEtaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Sexo
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a46e2f3-2d2f-4bfc-b0b7-12bbbd45bd20
+		summarizeBy: none
+		sourceColumn: ID_Sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Localizacao
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e9442da-50c0-4abd-b263-d8d72582b142
+		summarizeBy: none
+		sourceColumn: ID_Localizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_populacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\TrabalhoBI2\dados.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Código DSEI", Int64.Type}, {"DSEI", type text}, {"Código POLO BASE", Int64.Type}, {"POLO BASE", type text}, {"Código TERRA INDÍGENA", Int64.Type}, {"TERRA INDÍGENA", type text}, {"Código MUNÍCIPIO IBGE", Int64.Type}, {"MUNICÍPIO", type text}, {"UF", type text}, {"Código ALDEIA", Int64.Type}, {"ALDEIA", type text}, {"SEXO", type text}, {"FAIXA ETÁRIA", type text}, {"ANO", Int64.Type}, {"POPULAÇÃO INDÍGENA", Int64.Type}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado",2026,20260101,Replacer.ReplaceValue,{"ANO"}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Valor Substituído", {"ANO"}, dim_calendario, {"ID_Calendario"}, "dim_calendario", JoinKind.LeftOuter),
+				    #"dim_calendario Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dim_calendario", {"ID_Calendario"}, {"ID_Calendario"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"dim_calendario Expandido",{"ANO"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Colunas Removidas", {"FAIXA ETÁRIA"}, dim_faixa_etaria, {"FAIXA ETÁRIA"}, "dim_faixa_etaria", JoinKind.LeftOuter),
+				    #"dim_faixa_etaria Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas1", "dim_faixa_etaria", {"ID_FaixaEtaria"}, {"ID_FaixaEtaria"}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"dim_faixa_etaria Expandido",{"FAIXA ETÁRIA"}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Colunas Removidas1", {"SEXO"}, dim_sexo, {"SEXO"}, "dim_sexo", JoinKind.LeftOuter),
+				    #"dim_sexo Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas2", "dim_sexo", {"ID_Sexo"}, {"ID_Sexo"}),
+				    #"Consultas Mescladas3" = Table.NestedJoin(#"dim_sexo Expandido", {"Código DSEI", "DSEI", "Código POLO BASE", "POLO BASE", "Código TERRA INDÍGENA", "TERRA INDÍGENA", "Código MUNÍCIPIO IBGE", "MUNICÍPIO", "UF", "Código ALDEIA", "ALDEIA"}, dim_localizacao, {"Código DSEI", "DSEI", "Código POLO BASE", "POLO BASE", "Código TERRA INDÍGENA", "TERRA INDÍGENA", "Código MUNÍCIPIO IBGE", "MUNICÍPIO", "UF", "Código ALDEIA", "ALDEIA"}, "dim_localizacao", JoinKind.LeftOuter),
+				    #"dim_localizacao Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas3", "dim_localizacao", {"ID_Localizacao"}, {"ID_Localizacao"}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"dim_localizacao Expandido",{"Código DSEI", "DSEI", "Código POLO BASE", "POLO BASE", "Código TERRA INDÍGENA", "TERRA INDÍGENA", "Código MUNÍCIPIO IBGE", "MUNICÍPIO", "UF", "Código ALDEIA", "ALDEIA", "SEXO"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Removidas2",{"ID_Calendario", "ID_FaixaEtaria", "ID_Sexo", "ID_Localizacao", "POPULAÇÃO INDÍGENA"})
+				in
+				    #"Colunas Reordenadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
