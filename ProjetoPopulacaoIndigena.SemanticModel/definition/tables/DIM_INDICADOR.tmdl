@@ -1,0 +1,93 @@
+table DIM_INDICADOR
+	lineageTag: a0adac0c-bebf-4abe-9d4c-8c011ef8a6ab
+
+	column Id_Indicador
+		dataType: string
+		lineageTag: b5f04e0d-9c9d-4528-9ab9-575eb0ceff94
+		summarizeBy: none
+		sourceColumn: Id_Indicador
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicador
+		dataType: string
+		lineageTag: 9995bd50-d7b3-4aa8-be94-391c519f28f9
+		summarizeBy: none
+		sourceColumn: Indicador
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_INDICADOR = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lanna\OneDrive\Desktop\Faculdade\projeto-populacao-indigena\dados.xlsx"), null, true),
+				    DADOS_Sheet = Fonte{[Item="DADOS",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(DADOS_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"dt_referencia", Int64.Type}, {"dt_geracao", type date}, {"cod_DSEI", Int64.Type}, {"nome_DSEI", type text}, {"uf", type text}, {"PNASPIAS_01_num_CED", Int64.Type}, {"PNASPIAS_02_perc_CED", type number}, {"PNASPIAS_03_num_VAN", Int64.Type}, {"PNASPIAS_04_perc_VAN", type number}, {"PNASPIAS_05_num_prenat", Int64.Type}, {"PNASPIAS_06_perc_prenat", type number}, {"PNASPIAS_07_num_consodo", Int64.Type}, {"PNASPIAS_08_perc_consodo", type number}, {"PNASPIAS_09_num_tratodo", Int64.Type}, {"PNASPIAS_10_perc_tratodo", type number}, {"PNASPIAS_11_num_EVC", Int64.Type}, {"PNASPIAS_12_perc_EVC", type number}, {"PNASPIAS_13_tot_gestantes", Int64.Type}, {"PNASPIAS_14_tot_pop_indig", Int64.Type}, {"PNASPIAS_16_tot_crian_12_mes", Int64.Type}, {"PNASPIAS_17_tot_crian_1_ano", Int64.Type}}),
+				    #"Outras Colunas Não Dinâmicas" = Table.UnpivotOtherColumns(#"Tipo Alterado", {"dt_referencia", "dt_geracao", "cod_DSEI", "nome_DSEI", "uf"}, "Atributo", "Valor"),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Outras Colunas Não Dinâmicas",{{"uf", "UF"}, {"nome_DSEI", "Nome_DSEI"}, {"cod_DSEI", "Cod_DSEI"}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Colunas Renomeadas",{"dt_geracao"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Removidas", "Personalizar", each if Text.Contains([Atributo], "_num_") then "Quantidade" else if Text.Contains([Atributo], "_perc_") then "Cobertura " else if Text.Contains([Atributo], "tot_gestantes") then "Total Gestantes" else if Text.Contains([Atributo], "tot_pop_indig") then "Total Populacao" else if Text.Contains([Atributo], "tot_crian_1_ano") then "Total Criancas" else if Text.Contains([Atributo], "tot_crian_12_mes") then "Total Criancas 12 meses " else null),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Coluna Condicional Adicionada",{{"Personalizar", "Tipo"}}),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Colunas Renomeadas1", "Personalizar", each if Text.Contains([Atributo], "CED") then "CED" else if Text.Contains([Atributo], "VAN") then "VAN" else if Text.Contains([Atributo], "prenat") then "Pré-Natal" else if Text.Contains([Atributo], "consodo") then "Consulta Odontológica " else if Text.Contains([Atributo], "tratodo") then "Tratamento Odontológico " else if Text.Contains([Atributo], "EVC") then "EVC" else null),
+				    #"Coluna Condicional Adicionada2" = Table.AddColumn(#"Coluna Condicional Adicionada1", "Quantidade", each if [Tipo] = "Quantidade" then [Valor] else null),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"Coluna Condicional Adicionada2",{{"Personalizar", "Indicador"}}),
+				    #"Coluna Condicional Adicionada3" = Table.AddColumn(#"Colunas Renomeadas2", "Cobertura ", each if [Tipo] = "Cobertura " then [Valor] else null),
+				    #"Coluna Condicional Adicionada4" = Table.AddColumn(#"Coluna Condicional Adicionada3", "Total_Gestantes ", each if [Tipo] = "Total Gestantes " then [Valor] else null),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Coluna Condicional Adicionada4",{"Total_Gestantes "}),
+				    #"Coluna Condicional Adicionada5" = Table.AddColumn(#"Colunas Removidas1", "Personalizar", each if [Tipo] = "Total Gestantes" then [Valor] else null),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"Coluna Condicional Adicionada5",{{"Personalizar", "Total_Gestantes"}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Colunas Renomeadas3", "Índice", 0, 1, Int64.Type),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Índice Adicionado",{"Índice"}),
+				    #"Coluna Condicional Adicionada6" = Table.AddColumn(#"Colunas Removidas2", "Total_Pop_Indigena", each if [Tipo] = "Total Populacao" then [Valor] else null),
+				    #"Coluna Condicional Adicionada7" = Table.AddColumn(#"Coluna Condicional Adicionada6", "Personalizar", each if [Tipo] = "Total Criancas 12 meses" then [Valor] else null),
+				    #"Colunas Removidas3" = Table.RemoveColumns(#"Coluna Condicional Adicionada7",{"Personalizar"}),
+				    #"Coluna Condicional Adicionada8" = Table.AddColumn(#"Colunas Removidas3", "Personalizar", each if [Tipo] = "Total Criancas 12 meses" then [Valor] else null),
+				    #"Colunas Removidas4" = Table.RemoveColumns(#"Coluna Condicional Adicionada8",{"Personalizar"}),
+				    #"Coluna Condicional Adicionada9" = Table.AddColumn(#"Colunas Removidas4", "Personalizar", each if [Tipo] = "Total Criancas 12 meses " then [Valor] else null),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"Coluna Condicional Adicionada9",{{"Personalizar", "Total_Crian_1_ano"}}),
+				    #"Colunas Removidas5" = Table.RemoveColumns(#"Colunas Renomeadas4",{"Total_Gestantes", "Total_Crian_1_ano"}),
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Removidas5",{{"dt_referencia", "Id_tempo"}, {"Cod_DSEI", "Id_DSEI"}}),
+				    #"Colunas Removidas6" = Table.RemoveColumns(#"Colunas Renomeadas5",{"Nome_DSEI", "UF", "Atributo", "Valor"}),
+				    #"Coluna Condicional Adicionada10" = Table.AddColumn(#"Colunas Removidas6", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica" then 4 else if [Indicador] = "Tratamento Odontológico " then 5 else if [Indicador] = "EVC" then 6 else null),
+				    #"Colunas Renomeadas6" = Table.RenameColumns(#"Coluna Condicional Adicionada10",{{"Personalizar", "Id_indicador"}}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Renomeadas6",{"Id_tempo", "Id_DSEI", "Tipo", "Id_indicador", "Indicador", "Quantidade", "Cobertura ", "Total_Pop_Indigena"}),
+				    #"Colunas Removidas7" = Table.RemoveColumns(#"Colunas Reordenadas",{"Id_indicador"}),
+				    #"Coluna Condicional Adicionada11" = Table.AddColumn(#"Colunas Removidas7", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica " then 4 else if [Indicador] = "Tratamento Odontológico" then 5 else if [Indicador] = "EVC" then 6 else null),
+				    #"Colunas Renomeadas7" = Table.RenameColumns(#"Coluna Condicional Adicionada11",{{"Personalizar", "Id_indicador"}}),
+				    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Colunas Renomeadas7",{"Id_tempo", "Id_DSEI", "Tipo", "Id_indicador", "Indicador", "Quantidade", "Cobertura ", "Total_Pop_Indigena"}),
+				    #"Colunas Removidas8" = Table.RemoveColumns(#"Colunas Reordenadas1",{"Id_indicador"}),
+				    #"Coluna Condicional Adicionada12" = Table.AddColumn(#"Colunas Removidas8", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica " then 4 else if [Indicador] = "Tratamento Odontológico" then 5 else if [Indicador] = "EVC" then 6 else null),
+				    #"Colunas Removidas9" = Table.RemoveColumns(#"Coluna Condicional Adicionada12",{"Personalizar"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Removidas9",{{"Total_Pop_Indigena", Int64.Type}, {"Cobertura ", type number}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado1", "Personalizar", each [Cobertura] / 100),
+				    #"Colunas Removidas10" = Table.RemoveColumns(#"Personalização Adicionada",{"Personalizar"}),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Colunas Removidas10", "Personalizar", each [#"Cobertura"]/100),
+				    #"Colunas Removidas11" = Table.RemoveColumns(#"Personalização Adicionada1",{"Personalizar"}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Colunas Removidas11", {{"Cobertura ", type number}}, "pt-BR"),
+				    #"Personalização Adicionada2" = Table.AddColumn(#"Tipo Alterado com Localidade", "Personalizar", each [#"Cobertura "]/100),
+				    #"Colunas Renomeadas8" = Table.RenameColumns(#"Personalização Adicionada2",{{"Personalizar", "Cobertura2"}}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Colunas Renomeadas8",{{"Cobertura2", Percentage.Type}}),
+				    #"Colunas Removidas12" = Table.RemoveColumns(#"Tipo Alterado2",{"Cobertura "}),
+				    #"Colunas Reordenadas2" = Table.ReorderColumns(#"Colunas Removidas12",{"Id_tempo", "Id_DSEI", "Tipo", "Indicador", "Quantidade", "Cobertura2", "Total_Pop_Indigena"}),
+				    #"Colunas Renomeadas9" = Table.RenameColumns(#"Colunas Reordenadas2",{{"Cobertura2", "Cobertura"}}),
+				    #"Índice Adicionado1" = Table.AddIndexColumn(#"Colunas Renomeadas9", "Índice", 0, 1, Int64.Type),
+				    #"Colunas Removidas13" = Table.RemoveColumns(#"Índice Adicionado1",{"Índice"}),
+				    #"Coluna Condicional Adicionada13" = Table.AddColumn(#"Colunas Removidas13", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica" then 4 else if [Indicador] = "Tratamento Odontológico " then 5 else if [Indicador] = "EVC" then 6 else 0),
+				    #"Colunas Removidas14" = Table.RemoveColumns(#"Coluna Condicional Adicionada13",{"Personalizar"}),
+				    #"Coluna Condicional Adicionada14" = Table.AddColumn(#"Colunas Removidas14", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica " then 4 else if [Indicador] = "Tratamento Odontológico" then 5 else if [Indicador] = "EVC" then 6 else null),
+				    #"Colunas Removidas15" = Table.RemoveColumns(#"Coluna Condicional Adicionada14",{"Personalizar"}),
+				    #"Coluna Condicional Adicionada15" = Table.AddColumn(#"Colunas Removidas15", "Personalizar", each if [Indicador] = "CED" then 1 else if [Indicador] = "VAN" then 2 else if [Indicador] = "Pré-Natal" then 3 else if [Indicador] = "Consulta Odontológica " then 4 else if [Indicador] = "Tratamento Odontológico " then 5 else if [Indicador] = "EVC" then 6 else 7),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Coluna Condicional Adicionada15",7,0,Replacer.ReplaceValue,{"Personalizar"}),
+				    #"Colunas Renomeadas10" = Table.RenameColumns(#"Valor Substituído",{{"Personalizar", "Id_Indicador"}}),
+				    #"Colunas Reordenadas3" = Table.ReorderColumns(#"Colunas Renomeadas10",{"Id_tempo", "Id_DSEI", "Tipo", "Id_Indicador", "Indicador", "Quantidade", "Cobertura", "Total_Pop_Indigena"}),
+				    #"Colunas Removidas16" = Table.RemoveColumns(#"Colunas Reordenadas3",{"Id_tempo", "Id_DSEI", "Tipo", "Quantidade", "Cobertura", "Total_Pop_Indigena"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Removidas16")
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

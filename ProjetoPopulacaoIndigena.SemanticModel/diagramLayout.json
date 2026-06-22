@@ -10,72 +10,72 @@
       "nodes": [
         {
           "location": {
-            "x": 447.23629233773158,
-            "y": 870.21801722229748
+            "x": 555.41572199048028,
+            "y": 0
           },
-          "nodeIndex": "dim_calendario",
-          "nodeLineageTag": "831e363b-1c57-4e22-9248-0e52164e0c1b",
+          "nodeIndex": "DIM_DSEI",
+          "nodeLineageTag": "e23a850f-96eb-439b-9284-f132ecde3099",
           "size": {
-            "height": 300,
+            "height": 152,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 457.44416704443614,
-            "y": 55.290569486319441
+            "x": 0,
+            "y": 3.9487117448194482
           },
-          "nodeIndex": "dim_faixa_etaria",
-          "nodeLineageTag": "6bb88c33-d723-4907-89cd-63eff4af96b1",
+          "nodeIndex": "DIM_TEMPO",
+          "nodeLineageTag": "6bb6a34b-a83c-4291-8d1f-f3175b820706",
           "size": {
-            "height": 161.18212411959422,
+            "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 451.75092839991839,
-            "y": 401.47147425503431
+            "x": 261.73355390598221,
+            "y": 241.42018191386293
           },
-          "nodeIndex": "fato_populacao",
-          "nodeLineageTag": "8dbf7219-4aaf-4d8e-815b-469b42dca3f2",
+          "nodeIndex": "FATO_SAUDE",
+          "nodeLineageTag": "50640640-ca76-4610-9774-d843737e9549",
           "size": {
-            "height": 300,
+            "height": 265.38111263407313,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 982.74555168260736,
-            "y": 402.92579288078707
+            "x": 917.33837823585839,
+            "y": 88.535315243295827
           },
-          "nodeIndex": "dim_sexo",
-          "nodeLineageTag": "3a2c1699-7e81-44be-9d05-8df165e43a35",
+          "nodeIndex": "MEDIDAS",
+          "nodeLineageTag": "2b19fd7c-d5ad-4fd0-8d42-76da01aedd04",
           "size": {
-            "height": 300,
+            "height": 415.99999999999983,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 27.878583920270529,
-            "y": 409.81568793747522
+            "x": 258.49450273303796,
+            "y": 662.50826166753586
           },
-          "nodeIndex": "dim_localizacao",
-          "nodeLineageTag": "fe465f64-7346-474d-8b45-bcf6b8abdc21",
+          "nodeIndex": "DIM_INDICADOR",
+          "nodeLineageTag": "a0adac0c-bebf-4abe-9d4c-8c011ef8a6ab",
           "size": {
-            "height": 300,
+            "height": 128,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 63.287087723234045,
+      "zoomValue": 70.955543900968863,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

@@ -1,0 +1,86 @@
+table DIM_DSEI
+	lineageTag: e23a850f-96eb-439b-9284-f132ecde3099
+
+	column Id_DSEI
+		dataType: int64
+		formatString: 0
+		lineageTag: 280b1761-2d26-4425-a8b6-1a56a9d4bbf1
+		summarizeBy: none
+		sourceColumn: Id_DSEI
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_DSEI
+		dataType: string
+		lineageTag: cce2a5f7-e919-417e-8890-7f435e715004
+		summarizeBy: none
+		sourceColumn: Nome_DSEI
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 35ea1d4f-59d5-42d7-946c-f86b5908accd
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_UF =
+			
+			SWITCH(
+			    DIM_DSEI[uf],
+			    "AC", "Acre",
+			    "AL", "Alagoas",
+			    "AP", "Amapá",
+			    "AM", "Amazonas",
+			    "BA", "Bahia",
+			    "CE", "Ceará",
+			    "DF", "Distrito Federal",
+			    "ES", "Espírito Santo",
+			    "GO", "Goiás",
+			    "MA", "Maranhão",
+			    "MT", "Mato Grosso",
+			    "MS", "Mato Grosso do Sul",
+			    "MG", "Minas Gerais",
+			    "PA", "Pará",
+			    "PB", "Paraíba",
+			    "PR", "Paraná",
+			    "PE", "Pernambuco",
+			    "PI", "Piauí",
+			    "RJ", "Rio de Janeiro",
+			    "RN", "Rio Grande do Norte",
+			    "RS", "Rio Grande do Sul",
+			    "RO", "Rondônia",
+			    "RR", "Roraima",
+			    "SC", "Santa Catarina",
+			    "SP", "São Paulo",
+			    "SE", "Sergipe",
+			    "TO", "Tocantins",
+			    "BR", "Brasil",
+			    BLANK()
+			)
+		lineageTag: 408f6096-7c44-4dfe-9ba8-984fda7e40a9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DSEI = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lanna\OneDrive\Desktop\Faculdade\projeto-populacao-indigena\dados.xlsx"), null, true),
+				    DADOS_Sheet = Fonte{[Item="DADOS",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(DADOS_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"dt_referencia", Int64.Type}, {"dt_geracao", type date}, {"cod_DSEI", Int64.Type}, {"nome_DSEI", type text}, {"uf", type text}, {"PNASPIAS_01_num_CED", Int64.Type}, {"PNASPIAS_02_perc_CED", type number}, {"PNASPIAS_03_num_VAN", Int64.Type}, {"PNASPIAS_04_perc_VAN", type number}, {"PNASPIAS_05_num_prenat", Int64.Type}, {"PNASPIAS_06_perc_prenat", type number}, {"PNASPIAS_07_num_consodo", Int64.Type}, {"PNASPIAS_08_perc_consodo", type number}, {"PNASPIAS_09_num_tratodo", Int64.Type}, {"PNASPIAS_10_perc_tratodo", type number}, {"PNASPIAS_11_num_EVC", Int64.Type}, {"PNASPIAS_12_perc_EVC", type number}, {"PNASPIAS_13_tot_gestantes", Int64.Type}, {"PNASPIAS_14_tot_pop_indig", Int64.Type}, {"PNASPIAS_16_tot_crian_12_mes", Int64.Type}, {"PNASPIAS_17_tot_crian_1_ano", Int64.Type}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"dt_referencia", "dt_geracao", "PNASPIAS_01_num_CED", "PNASPIAS_02_perc_CED", "PNASPIAS_03_num_VAN", "PNASPIAS_04_perc_VAN", "PNASPIAS_05_num_prenat", "PNASPIAS_06_perc_prenat", "PNASPIAS_07_num_consodo", "PNASPIAS_08_perc_consodo", "PNASPIAS_09_num_tratodo", "PNASPIAS_10_perc_tratodo", "PNASPIAS_11_num_EVC", "PNASPIAS_12_perc_EVC", "PNASPIAS_13_tot_gestantes", "PNASPIAS_14_tot_pop_indig", "PNASPIAS_16_tot_crian_12_mes", "PNASPIAS_17_tot_crian_1_ano"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"cod_DSEI", "Cod_DSEI"}, {"nome_DSEI", "Nome_DSEI"}, {"uf", "UF"}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Renomeadas"),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Duplicatas Removidas",{{"Cod_DSEI", "Id_DSEI"}})
+				in
+				    #"Colunas Renomeadas1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

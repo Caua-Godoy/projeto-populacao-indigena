@@ -2,8 +2,2347 @@ cultureInfo pt-BR
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
-			  "Language": "en-US"
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_TEMPO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIM_TEMPO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "tempo": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "dim rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "dim cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "dim beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim pulse": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim measure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim stroke": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tempo.id_tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_TEMPO",
+			          "ConceptualProperty": "Id_tempo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Id_tempo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "tempo": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "identification tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "id rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "id cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "id beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "id speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tempo.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_TEMPO",
+			          "ConceptualProperty": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tempo.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_TEMPO",
+			          "ConceptualProperty": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_dsei": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim dsei": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIM_DSEI": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_dsei.id_DSEI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DSEI",
+			          "ConceptualProperty": "Id_DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id DSEI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Id_DSEI": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "DSEI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "identification dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_dsei.nome_DSEI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DSEI",
+			          "ConceptualProperty": "Nome_DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome DSEI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Nome_DSEI": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "DSEI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_dsei.uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DSEI",
+			          "ConceptualProperty": "UF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_dsei.nome_UF": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DSEI",
+			          "ConceptualProperty": "Nome_UF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome UF": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Nome_UF": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fato saude": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FATO_SAUDE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.id_tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Id_tempo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Id_tempo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "tempo": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "identification tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "id rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "id cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "id beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "id speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.id_DSEI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Id_DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id DSEI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Id_DSEI": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "DSEI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "identification dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential dsei": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.indicador": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Indicador"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "indicador": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.quantidade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Quantidade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "quantidade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.total_pop_indigena": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Total_Pop_Indigena"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total pop indigena": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Total_Pop_Indigena": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate pop indigena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "overall pop indigena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tempo.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_TEMPO",
+			          "ConceptualProperty": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.cobertura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Cobertura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_saude.faixa_cobertura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FATO_SAUDE",
+			          "ConceptualProperty": "Faixa Cobertura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "faixa cobertura": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Faixa de Cobertura": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "usefulness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cobertura_média": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Cobertura Média"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura média": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.melhor_cobertura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Melhor Cobertura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "melhor cobertura": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.total_atendidos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Total Atendidos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total atendidos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate atendido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall atendido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medida.qtd_DSEIs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Qtd DSEIs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qtd DSEIs": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.média_DSEIs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Média DSEIs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "média DSEIs": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.desvio_DSEIs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Desvio DSEIs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "desvio DSEIs": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.coeficiente_variação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Coeficiente Variação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "coeficiente variação": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Coeficiente de Variação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medida.meta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Meta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "meta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.qtd_DSEIs_acima_meta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Qtd DSEIs Acima Meta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qtd DSEIs acima meta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.DSEIs_acima_meta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "% DSEIs Acima Meta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% DSEIs acima meta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage dseis acima meta": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct dseis acima meta": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "% DSEIs Acima da Meta": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medida.nome_melhor_DSEI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Nome Melhor DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome melhor DSEI": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.ranking_DSEI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS",
+			          "ConceptualProperty": "Ranking DSEI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking DSEI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DSEI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "fato_saude_has_dim_tempo": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "dim_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "dim_tempo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_dim_tempi"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tempo"
+			            },
+			            "Object": {
+			              "Role": "fato_saude"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tempi_have_fato_saudes"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_dim_dsei": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "dim_dsei"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_dim_dseis"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "fato_saude"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_fato_saudes"
+			        }
+			      ]
+			    },
+			    "medida_has_ranking_DSEI": {
+			      "Binding": {
+			        "ConceptualEntity": "MEDIDAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida": {
+			          "Target": {
+			            "Entity": "medida"
+			          }
+			        },
+			        "medida.ranking_DSEI": {
+			          "Target": {
+			            "Entity": "medida.ranking_DSEI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "medida"
+			            },
+			            "Object": {
+			              "Role": "medida.ranking_DSEI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "medidas_have_ranking_DSEI"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_nome_melhor_DSEI": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.nome_melhor_DSEI": {
+			          "Target": {
+			            "Entity": "medida.nome_melhor_DSEI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.nome_melhor_DSEI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_nome_melhor_DSEI"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_nome_melhor_DSEI": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.nome_melhor_DSEI": {
+			          "Target": {
+			            "Entity": "medida.nome_melhor_DSEI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.nome_melhor_DSEI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_nome_melhor_DSEI"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_DSEIs_acima_meta": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.DSEIs_acima_meta": {
+			          "Target": {
+			            "Entity": "medida.DSEIs_acima_meta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.DSEIs_acima_meta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have__DSEIs_acima_meta"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_DSEIs_acima_meta": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.DSEIs_acima_meta": {
+			          "Target": {
+			            "Entity": "medida.DSEIs_acima_meta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.DSEIs_acima_meta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have__DSEIs_acima_meta"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_qtd_DSEIs_acima_meta": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.qtd_DSEIs_acima_meta": {
+			          "Target": {
+			            "Entity": "medida.qtd_DSEIs_acima_meta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.qtd_DSEIs_acima_meta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_qtd_DSEIs_acima_meta"
+			        }
+			      ]
+			    },
+			    "medida_has_meta": {
+			      "Binding": {
+			        "ConceptualEntity": "MEDIDAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida": {
+			          "Target": {
+			            "Entity": "medida"
+			          }
+			        },
+			        "medida.meta": {
+			          "Target": {
+			            "Entity": "medida.meta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "medida"
+			            },
+			            "Object": {
+			              "Role": "medida.meta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "medidas_have_meta"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_coeficiente_variação": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.coeficiente_variação": {
+			          "Target": {
+			            "Entity": "medida.coeficiente_variação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.coeficiente_variação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_coeficiente_variação"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_coeficiente_variação": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.coeficiente_variação": {
+			          "Target": {
+			            "Entity": "medida.coeficiente_variação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.coeficiente_variação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_coeficiente_variação"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_desvio_DSEIs": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.desvio_DSEIs": {
+			          "Target": {
+			            "Entity": "medida.desvio_DSEIs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.desvio_DSEIs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_desvio_DSEIs"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_desvio_DSEIs": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.desvio_DSEIs": {
+			          "Target": {
+			            "Entity": "medida.desvio_DSEIs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.desvio_DSEIs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_desvio_DSEIs"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_média_DSEIs": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.média_DSEIs": {
+			          "Target": {
+			            "Entity": "medida.média_DSEIs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.média_DSEIs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_média_DSEIs"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_medida_média_DSEIs": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "medida.média_DSEIs": {
+			          "Target": {
+			            "Entity": "medida.média_DSEIs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "medida.média_DSEIs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_média_DSEIs"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_qtd_DSEIs": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.qtd_DSEIs": {
+			          "Target": {
+			            "Entity": "medida.qtd_DSEIs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.qtd_DSEIs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_qtd_DSEIs"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_total_atendidos": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.total_atendidos": {
+			          "Target": {
+			            "Entity": "medida.total_atendidos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.total_atendidos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_total_atendidos"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_melhor_cobertura": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.melhor_cobertura": {
+			          "Target": {
+			            "Entity": "medida.melhor_cobertura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.melhor_cobertura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_melhor_cobertura"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_medida_cobertura_média": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "medida.cobertura_média": {
+			          "Target": {
+			            "Entity": "medida.cobertura_média"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "medida.cobertura_média"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_cobertura_média"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_faixa_cobertura": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.faixa_cobertura": {
+			          "Target": {
+			            "Entity": "fato_saude.faixa_cobertura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.faixa_cobertura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_faixa_coberturas"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_cobertura": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.cobertura": {
+			          "Target": {
+			            "Entity": "fato_saude.cobertura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.cobertura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_coberturas"
+			        }
+			      ]
+			    },
+			    "dim_tempo_has_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_TEMPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo"
+			          }
+			        },
+			        "dim_tempo.trimestre": {
+			          "Target": {
+			            "Entity": "dim_tempo.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tempo"
+			            },
+			            "Object": {
+			              "Role": "dim_tempo.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tempi_have_trimestres"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_total_pop_indigena": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.total_pop_indigena": {
+			          "Target": {
+			            "Entity": "fato_saude.total_pop_indigena"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.total_pop_indigena"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_total_pop_indigenas"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_quantidade": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.quantidade": {
+			          "Target": {
+			            "Entity": "fato_saude.quantidade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.quantidade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_quantidades"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_indicador": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.indicador": {
+			          "Target": {
+			            "Entity": "fato_saude.indicador"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.indicador"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_indicadors"
+			        }
+			      ]
+			    },
+			    "fato_saude_has_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "FATO_SAUDE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_saude": {
+			          "Target": {
+			            "Entity": "fato_saude"
+			          }
+			        },
+			        "fato_saude.tipo": {
+			          "Target": {
+			            "Entity": "fato_saude.tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_saude"
+			            },
+			            "Object": {
+			              "Role": "fato_saude.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_saudes_have_tipos"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_nome_UF": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "dim_dsei.nome_UF": {
+			          "Target": {
+			            "Entity": "dim_dsei.nome_UF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "dim_dsei.nome_UF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_nome_UFs"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "dim_dsei.uf": {
+			          "Target": {
+			            "Entity": "dim_dsei.uf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "dim_dsei.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_ufs"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_nome_DSEI": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "dim_dsei.nome_DSEI": {
+			          "Target": {
+			            "Entity": "dim_dsei.nome_DSEI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "dim_dsei.nome_DSEI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_nome_DSEIs"
+			        }
+			      ]
+			    },
+			    "dim_dsei_has_id_DSEI": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DSEI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_dsei": {
+			          "Target": {
+			            "Entity": "dim_dsei"
+			          }
+			        },
+			        "dim_dsei.id_DSEI": {
+			          "Target": {
+			            "Entity": "dim_dsei.id_DSEI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dsei"
+			            },
+			            "Object": {
+			              "Role": "dim_dsei.id_DSEI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dseis_have_id_DSEIs"
+			        }
+			      ]
+			    },
+			    "dim_tempo_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_TEMPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo"
+			          }
+			        },
+			        "dim_tempo.me": {
+			          "Target": {
+			            "Entity": "dim_tempo.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tempo"
+			            },
+			            "Object": {
+			              "Role": "dim_tempo.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tempi_have_me"
+			        }
+			      ]
+			    },
+			    "dim_tempo_has_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_TEMPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo"
+			          }
+			        },
+			        "dim_tempo.ano": {
+			          "Target": {
+			            "Entity": "dim_tempo.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tempo"
+			            },
+			            "Object": {
+			              "Role": "dim_tempo.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tempi_have_anos"
+			        }
+			      ]
+			    },
+			    "dim_tempo_has_id_tempo": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_TEMPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo"
+			          }
+			        },
+			        "dim_tempo.id_tempo": {
+			          "Target": {
+			            "Entity": "dim_tempo.id_tempo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tempo"
+			            },
+			            "Object": {
+			              "Role": "dim_tempo.id_tempo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tempi_have_id_tempi"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
 			}
 		contentType: json
 

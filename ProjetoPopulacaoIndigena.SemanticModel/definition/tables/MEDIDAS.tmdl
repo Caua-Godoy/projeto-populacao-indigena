@@ -1,0 +1,135 @@
+table MEDIDAS
+	lineageTag: 2b19fd7c-d5ad-4fd0-8d42-76da01aedd04
+
+	measure 'Cobertura Média' =
+			
+			AVERAGE(FATO_SAUDE[Cobertura])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f7ab84f4-681d-4270-9760-86cf017c6f93
+
+	measure 'Melhor Cobertura' =
+			
+			MAX(FATO_SAUDE[Cobertura])
+		lineageTag: d703ba73-4ca6-4fd4-918e-f269e6628d01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Atendidos' =
+			
+			SUM(FATO_SAUDE[Quantidade])
+		formatString: 0
+		lineageTag: 770448f2-213f-4f51-8f29-2b8acf709747
+
+	measure 'Qtd DSEIs' =
+			
+			DISTINCTCOUNT(FATO_SAUDE[Id_DSEI])
+		formatString: 0
+		lineageTag: 5775ba7f-baf8-444b-8481-6648fa16a9a2
+
+	measure 'Média DSEIs' =
+			
+			AVERAGEX(
+			    VALUES(DIM_DSEI[Nome_DSEI]),
+			    CALCULATE(
+			        AVERAGE(FATO_SAUDE[Cobertura])
+			    )
+			)
+		lineageTag: 0fa5e378-211f-4656-812e-f9992e6f7e54
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Desvio DSEIs' =
+			
+			STDEVX.P(
+			    VALUES(DIM_DSEI[Nome_DSEI]),
+			    CALCULATE(
+			        AVERAGE(FATO_SAUDE[Cobertura])
+			    )
+			)
+		lineageTag: 0cf2ef18-20f9-440e-a4d9-a4e275ea84a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coeficiente Variação' =
+			
+			DIVIDE(
+			    [Desvio DSEIs],
+			    [Média DSEIs]
+			)
+		lineageTag: 4f268e8c-0ace-4aa2-b178-ade1e33a74c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Meta = 0.70
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 910ca40c-3539-4f39-aa3c-ed341f57399d
+
+	measure 'Qtd DSEIs Acima Meta' =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(DIM_DSEI[Nome_DSEI]),
+			        CALCULATE(
+			            AVERAGE(FATO_SAUDE[Cobertura])
+			        ) >= [Meta]
+			    )
+			)
+		formatString: 0
+		lineageTag: ecda8ccc-3ae4-4f6f-b520-2af91f0f219e
+
+	measure '% DSEIs Acima Meta' =
+			
+			DIVIDE(
+			    [Qtd DSEIs Acima Meta],
+			    [Qtd DSEIs]
+			)
+		lineageTag: 99117376-f7a4-497a-8aea-d8e88308cc69
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nome Melhor DSEI' =
+			
+			VAR Melhor =
+			TOPN(
+			    1,
+			    VALUES(DIM_DSEI[Nome_DSEI]),
+			    CALCULATE(
+			        AVERAGE(FATO_SAUDE[Cobertura])
+			    ),
+			    DESC
+			)
+			RETURN
+			MAXX(
+			    Melhor,
+			    DIM_DSEI[Nome_DSEI]
+			)
+		lineageTag: 46acff01-db3f-438c-b090-4d8b235c9a11
+
+	measure 'Ranking DSEI' =
+			
+			RANKX(
+			    ALL(DIM_DSEI[Nome_DSEI]),
+			    [Cobertura Média],
+			    ,
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: 0d589265-aae1-4474-8469-086f0e01ddfa
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 18710250-bf2a-45ae-9720-b72949329725
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MEDIDAS = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = b4281cdc965d4f0d9b915d7970f9f120
+

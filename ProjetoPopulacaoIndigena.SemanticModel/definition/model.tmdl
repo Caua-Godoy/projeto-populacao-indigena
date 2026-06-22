@@ -8,17 +8,15 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["fato_populacao","dim_sexo","dim_localizacao","dim_faixa_etaria","dim_calendario"]
+annotation PBI_QueryOrder = ["DIM_TEMPO","DIM_DSEI","FATO_SAUDE","DIM_INDICADOR"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table fato_populacao
-ref table dim_sexo
-ref table dim_localizacao
-ref table dim_faixa_etaria
-ref table dim_calendario
-ref table DateTableTemplate_535895c3-2fc2-43a3-a580-a52b99c98256
-ref table LocalDateTable_f0b11947-0f69-4189-b5ff-56371bfa75dc
+ref table DIM_TEMPO
+ref table DIM_DSEI
+ref table FATO_SAUDE
+ref table MEDIDAS
+ref table DIM_INDICADOR
 
 ref cultureInfo pt-BR
 

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e8e89775c6dc6d36203b",
+  "position": {
+    "x": 43.101952680107544,
+    "y": 265.31143225822086,
+    "z": 5000,
+    "height": 49.131751762909829,
+    "width": 196.52700705163932,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "ANÁLISE TERRITORIAL",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Light",
+                      "fontSize": "8pt",
+                      "color": "#a38600"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
