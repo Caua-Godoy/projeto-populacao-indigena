@@ -1,0 +1,7 @@
+role RLS_AC
+	modelPermission: read
+
+	tablePermission DIM_DSEI = [Nome_UF] == "Acre"
+
+	annotation PBI_Id = 4c4480921d1a41579c48f16f821b7660
+

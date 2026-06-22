@@ -21,7 +21,7 @@ table DIM_INDICADOR
 		mode: import
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("C:\Users\lanna\OneDrive\Desktop\Faculdade\projeto-populacao-indigena\dados.xlsx"), null, true),
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\Trabalho\projeto-populacao-indigena\dados.xlsx"), null, true),
 				    DADOS_Sheet = Fonte{[Item="DADOS",Kind="Sheet"]}[Data],
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(DADOS_Sheet, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"dt_referencia", Int64.Type}, {"dt_geracao", type date}, {"cod_DSEI", Int64.Type}, {"nome_DSEI", type text}, {"uf", type text}, {"PNASPIAS_01_num_CED", Int64.Type}, {"PNASPIAS_02_perc_CED", type number}, {"PNASPIAS_03_num_VAN", Int64.Type}, {"PNASPIAS_04_perc_VAN", type number}, {"PNASPIAS_05_num_prenat", Int64.Type}, {"PNASPIAS_06_perc_prenat", type number}, {"PNASPIAS_07_num_consodo", Int64.Type}, {"PNASPIAS_08_perc_consodo", type number}, {"PNASPIAS_09_num_tratodo", Int64.Type}, {"PNASPIAS_10_perc_tratodo", type number}, {"PNASPIAS_11_num_EVC", Int64.Type}, {"PNASPIAS_12_perc_EVC", type number}, {"PNASPIAS_13_tot_gestantes", Int64.Type}, {"PNASPIAS_14_tot_pop_indig", Int64.Type}, {"PNASPIAS_16_tot_crian_12_mes", Int64.Type}, {"PNASPIAS_17_tot_crian_1_ano", Int64.Type}}),

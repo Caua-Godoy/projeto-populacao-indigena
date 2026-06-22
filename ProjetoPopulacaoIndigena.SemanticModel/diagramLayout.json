@@ -16,7 +16,7 @@
           "nodeIndex": "DIM_DSEI",
           "nodeLineageTag": "e23a850f-96eb-439b-9284-f132ecde3099",
           "size": {
-            "height": 152,
+            "height": 195.68932756440572,
             "width": 234
           },
           "zIndex": 1
@@ -29,7 +29,7 @@
           "nodeIndex": "DIM_TEMPO",
           "nodeLineageTag": "6bb6a34b-a83c-4291-8d1f-f3175b820706",
           "size": {
-            "height": 176,
+            "height": 205.59599609201678,
             "width": 234
           },
           "zIndex": 2
@@ -42,15 +42,15 @@
           "nodeIndex": "FATO_SAUDE",
           "nodeLineageTag": "50640640-ca76-4610-9774-d843737e9549",
           "size": {
-            "height": 265.38111263407313,
+            "height": 306.25177390400097,
             "width": 234
           },
           "zIndex": 4
         },
         {
           "location": {
-            "x": 917.33837823585839,
-            "y": 88.535315243295827
+            "x": 1338.728989260288,
+            "y": 98.40064727396809
           },
           "nodeIndex": "MEDIDAS",
           "nodeLineageTag": "2b19fd7c-d5ad-4fd0-8d42-76da01aedd04",
@@ -62,13 +62,13 @@
         },
         {
           "location": {
-            "x": 258.49450273303796,
-            "y": 662.50826166753586
+            "x": 257.08516958579906,
+            "y": 720.29092070433046
           },
           "nodeIndex": "DIM_INDICADOR",
           "nodeLineageTag": "a0adac0c-bebf-4abe-9d4c-8c011ef8a6ab",
           "size": {
-            "height": 128,
+            "height": 145,
             "width": 234
           },
           "zIndex": 0

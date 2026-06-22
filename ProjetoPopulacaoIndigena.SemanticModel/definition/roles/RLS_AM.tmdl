@@ -1,0 +1,7 @@
+role RLS_AM
+	modelPermission: read
+
+	tablePermission DIM_DSEI = [Nome_UF] == "Amazonas"
+
+	annotation PBI_Id = 8165cb7926e04dec85984bc1845ccb9f
+

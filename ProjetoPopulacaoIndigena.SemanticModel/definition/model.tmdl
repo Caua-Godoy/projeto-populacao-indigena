@@ -18,5 +18,8 @@ ref table FATO_SAUDE
 ref table MEDIDAS
 ref table DIM_INDICADOR
 
+ref role RLS_AM
+ref role RLS_AC
+
 ref cultureInfo pt-BR
 

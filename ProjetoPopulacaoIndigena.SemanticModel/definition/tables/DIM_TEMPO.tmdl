@@ -34,11 +34,27 @@ table DIM_TEMPO
 
 		annotation SummarizationSetBy = Automatic
 
+	column Nome_Mes
+		dataType: string
+		lineageTag: c21af945-c37e-4e81-9b6f-3c35f90a77bd
+		summarizeBy: none
+		sourceColumn: Nome_Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano_Trimestre
+		dataType: string
+		lineageTag: 3bf149de-cfd0-4a2c-9690-27594782470a
+		summarizeBy: none
+		sourceColumn: Ano_Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DIM_TEMPO = m
 		mode: import
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("C:\Users\lanna\OneDrive\Desktop\Faculdade\projeto-populacao-indigena\dados.xlsx"), null, true),
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\User\OneDrive\Documents\Trabalho\projeto-populacao-indigena\dados.xlsx"), null, true),
 				    DADOS_Sheet = Fonte{[Item="DADOS",Kind="Sheet"]}[Data],
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(DADOS_Sheet, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"dt_referencia", Int64.Type}, {"dt_geracao", type date}, {"cod_DSEI", Int64.Type}, {"nome_DSEI", type text}, {"uf", type text}, {"PNASPIAS_01_num_CED", Int64.Type}, {"PNASPIAS_02_perc_CED", type number}, {"PNASPIAS_03_num_VAN", Int64.Type}, {"PNASPIAS_04_perc_VAN", type number}, {"PNASPIAS_05_num_prenat", Int64.Type}, {"PNASPIAS_06_perc_prenat", type number}, {"PNASPIAS_07_num_consodo", Int64.Type}, {"PNASPIAS_08_perc_consodo", type number}, {"PNASPIAS_09_num_tratodo", Int64.Type}, {"PNASPIAS_10_perc_tratodo", type number}, {"PNASPIAS_11_num_EVC", Int64.Type}, {"PNASPIAS_12_perc_EVC", type number}, {"PNASPIAS_13_tot_gestantes", Int64.Type}, {"PNASPIAS_14_tot_pop_indig", Int64.Type}, {"PNASPIAS_16_tot_crian_12_mes", Int64.Type}, {"PNASPIAS_17_tot_crian_1_ano", Int64.Type}}),
@@ -59,9 +75,13 @@ table DIM_TEMPO
 				    #"Colunas Renomeadas4" = Table.RenameColumns(#"Coluna Condicional Adicionada",{{"Personalizar", "Trimestre"}, {"Mês", "Mes"}, {"Data_referencia", "Id_tempo"}}),
 				    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Colunas Renomeadas4", "Texto Antes do Delimitador", each Text.BeforeDelimiter([Trimestre], "/"), type text),
 				    #"Colunas Removidas4" = Table.RemoveColumns(#"Texto Inserido Antes do Delimitador",{"Trimestre"}),
-				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Removidas4",{{"Texto Antes do Delimitador", "Trimestre"}})
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Removidas4",{{"Texto Antes do Delimitador", "Trimestre"}}),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Colunas Renomeadas5", "Nome_Mes", each if [Mes] = "12" then "Dezembro" else if [Mes] = "03" then "Março" else if [Mes] = "06" then "Junho" else if [Mes] = "09" then "Setembro" else null),
+				    #"Coluna Condicional Adicionada2" = Table.AddColumn(#"Coluna Condicional Adicionada1", "Semestre", each if [Mes] = "03" then "1°" else if [Mes] = "06" then "1°" else if [Mes] = "09" then "2°" else if [Mes] = "12" then "2°" else null),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Coluna Condicional Adicionada2", "Ano_Trimestre", each Text.From([Ano]) & " T" & Text.Start(Text.From([Trimestre]), 1)),
+				    #"Colunas Removidas5" = Table.RemoveColumns(#"Personalização Adicionada",{"Semestre"})
 				in
-				    #"Colunas Renomeadas5"
+				    #"Colunas Removidas5"
 
 	annotation PBI_NavigationStepName = Navegação
 
